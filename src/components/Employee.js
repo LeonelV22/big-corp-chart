@@ -16,13 +16,9 @@ export default React.memo(({ employee }) => {
     }, [employee.id, setEmployees])
 
     return (
-       <React.Fragment>
-           
-            <div className='EmployeeContainer__Employee'>
-                <div className='EmployeeContainer__Employee__Name' onClick={fetchEmployees}>{employee.first} {employee.last}</div>
-                { isFetching ? 'loading...' : <EmployeesList employees={employees} /> }
-            </div>
-          
-        </React.Fragment>
+        <div className='EmployeeContainer__Employee'>
+            <div className='EmployeeContainer__Employee__Name' onClick={fetchEmployees}>{employee.first} {employee.last}</div>
+            { isFetching ? 'loading...' : <EmployeesList employees={employees} /> }
+        </div>
     )
 })

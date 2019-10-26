@@ -4,7 +4,7 @@ import './Employee.scss';
 import { fetchEmployeesByManager } from '../servicies/employees';
 import EmployeesList from './EmployeesList';
 
-export default ({ employee }) => {
+export default React.memo(({ employee }) => {
     const [employees, setEmployees] = useState([]);
     const [isFetching, setIsFetching] = useState(false)
 
@@ -17,13 +17,12 @@ export default ({ employee }) => {
 
     return (
        <React.Fragment>
-
-            <div className='EmployeeContainer__Employee' onClick={fetchEmployees}>
-                {employee.first} {employee.last}
-            </div>
            
-            { isFetching ? 'loading...' : <EmployeesList employees={employees} /> }
-            
+            <div className='EmployeeContainer__Employee'>
+                <div className='EmployeeContainer__Employee__Name' onClick={fetchEmployees}>{employee.first} {employee.last}</div>
+                { isFetching ? 'loading...' : <EmployeesList employees={employees} /> }
+            </div>
+          
         </React.Fragment>
     )
-}
+})

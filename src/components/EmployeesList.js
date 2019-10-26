@@ -1,7 +1,7 @@
 import React from 'react';
 import Employee from './Employee';
 
-const EmployeesList = React.memo(({ employees = [] }) => {
+const EmployeesList = React.memo(({ employees = [], setEmployees }) => {
 
     if (employees.length === 0) {
         return null;
@@ -11,7 +11,7 @@ const EmployeesList = React.memo(({ employees = [] }) => {
             
             <div className='EmployeeContainer'>
                 {
-                    employees.map(employee => <Employee key={employee.id} employee={employee} />)
+                    employees.map(employee => <Employee key={employee.id} employee={employee} employees={employees} setEmployees={setEmployees} />)
                 }
             </div>
         </React.Fragment>

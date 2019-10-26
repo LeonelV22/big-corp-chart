@@ -1,18 +1,38 @@
 .EmployeeContainer {
     margin-left: 25px;
-    
+    text-align: center;
+
+    &:first-of-type {
+        display: flex;
+        justify-content: center;
+    }
+    .EmployeeContainer {
+        display: flex;
+    }
+
     &__Employee {
-        display: table;
+        display: inline-block;
         margin: 10px 0;
         padding: 10px;
-        box-shadow: 0px 0px 2px 0px;
-        background: linear-gradient(#f8f8f8, #fff);
-        box-shadow: 0 8px 16px -8px rgba(0,0,0,0.4);
-        border-radius: 6px;
         cursor: pointer;
+    }
 
+    & &__Employee {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        align-self: flex-start;
+    }
+
+    &__Employee__Name {
+        position: relative;
+        margin: 10px 5px;
+        padding: 10px;
+        background: rgb(255, 255, 255);
+        border-radius: 4px;
+        border: 1px solid rgb(230, 232, 233);
         &:hover {
-            box-shadow: 0 8px 16px -8px rgba(0,0,0,1);
+           transform: scale(1.2)
         }
     }
 }

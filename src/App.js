@@ -1,24 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
+import './App.scss';
 
-function App() {
+import EmployeesList from './components/EmployeesList';
+import { fetchEmployeesByManager } from './servicies/employees';
+
+const App = () => {
+
+  const [employees, setEmployees] = useState([]);
+ 
+  const fetchTopLevelEmployee = async () => {
+    const result = await fetchEmployeesByManager(0);
+    setEmployees([
+      result[0]
+    ]);
+  }
+
+  useEffect(() => {
+    fetchTopLevelEmployee()
+  }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1 className="App__Header">Glide Big Corp Chart</h1>
+        <EmployeesList key={new Date() * Math.random() * 10000} employees={employees} />
     </div>
   );
 }

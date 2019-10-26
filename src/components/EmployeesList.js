@@ -7,14 +7,11 @@ const EmployeesList = React.memo(({ employees = [] }) => {
         return null
     }
     return (
-        <React.Fragment>
-            <div className='EmployeeContainer'>
-                {
-                    employees.map(employee => <Employee key={employee.id} employee={employee} />)
-                }
-            </div>
-        </React.Fragment>
-
+        <div className='EmployeeContainer'>
+            {
+                employees.map(employee => <Employee key={employee.id} employee={employee} />)
+            }
+        </div>
     );
 })
 

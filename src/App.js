@@ -21,7 +21,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <h1 className="App__Header">Glide Big Corp Chart</h1>
+      <h1 className="App__Header">Big Corp Chart</h1>
         <EmployeesList key={new Date() * Math.random() * 10000} employees={employees} />
     </div>
   );
